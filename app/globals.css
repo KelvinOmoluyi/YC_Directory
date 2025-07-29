@@ -5,14 +5,17 @@
   --foreground: #171717;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --primary: #ef2968ff;
   --font-geist-sans: 'Geist Sans', sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
+
+  --black-300: #252525;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffffff;
     --white: #ffffff;
   }
 }
@@ -114,7 +117,7 @@ body {
 }
 
 .heading {
-  @apply bg-[#09111f] w-full p-8 text-5xl text-center font-bold text-white;
+  @apply bg-[#09111f] w-fit p-8 text-5xl text-center;
 }
 
 .document-list-container {
@@ -216,5 +219,348 @@ body {
 }
 
 .pink_container {
-  @apply flex w-full h-[35rem] flex-col items-center justify-center bg-red-400;
+    @apply flex w-full h-[calc(100vh-60px)] flex-col items-center justify-center;
+    background:
+      linear-gradient(
+        to right,
+        transparent 49.5%,
+        rgba(251, 232, 67, 0.2) 49.5%,
+        rgba(251, 232, 67, 0.6) 50.5%,
+        transparent 50.5%
+      ),
+      var(--primary);
+    background-size: 5% 100%, cover;
+    background-position: center;
+    background-repeat: repeat-x, no-repeat;
+  }
+
+
+
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .text-30-extrabold {
+    @apply text-[50px] font-extrabold text-white;
+  }
+
+  .text-30-bold {
+    @apply text-[30px] font-bold text-black;
+  }
+
+  .text-30-semibold {
+    @apply font-semibold text-[30px] text-black;
+  }
+
+  .text-26-semibold {
+    @apply font-semibold text-[26px] text-black;
+  }
+
+  .text-24-black {
+    @apply text-[24px] font-black text-black;
+  }
+
+  .text-20-medium {
+    @apply font-medium text-[20px] text-black;
+  }
+
+  .text-16-medium {
+    @apply font-medium text-[16px] text-black;
+  }
+
+  .text-14-normal {
+    @apply font-normal text-sm;
+    color: rgb(247 247 247 / 0.8);
+  }
+
+  .tag {
+    @apply px-6 py-3 font-bold rounded-sm uppercase relative;
+    background-color: var(--secondary);
+    --font-geist-sans: var(--font-geist-sans);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      border-top: 10px solid black;
+      border-right: 10px solid transparent;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      border-bottom: 10px solid black;
+      border-left: 10px solid transparent;
+    }
+  }
+
+  .text-white-100-alpha {
+    color: rgb(247 247 247 / 0.8);
+  }
+
+  .sub-heading {
+    @apply text-[20px] text-white max-w-2xl text-center break-words mt-5;
+  }
+
+  .section_container {
+    @apply px-6 py-10 max-w-7xl mx-auto;
+  }
+
+  .card_grid {
+    @apply grid md:grid-cols-3 sm:grid-cols-2 gap-5;
+  }
+
+  .card_grid-sm {
+    @apply grid sm:grid-cols-2 gap-5;
+  }
+
+  .no-result {
+    @apply text-sm font-normal;
+    color: var(--black-100);
+  }
+
+  /* profile */
+  .profile_container {
+    @apply w-full pb-10 pt-20 px-6 max-w-7xl mx-auto lg:flex-row flex-col flex gap-10;
+  }
+
+  .profile_card {
+    @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center border-[5px] border-black rounded-[30px] relative z-0 h-fit max-lg:w-full;
+    background-color: var(--primary);
+    box-shadow: var(--shadow-100);
+  }
+
+  .profile_title {
+    @apply w-11/12 bg-white border-[5px] border-black rounded-[20px] px-5 py-3 absolute -top-9 after:absolute after:content-[''] after:-top-1 after:right-0 after:-skew-y-6 after:bg-black after:-z-[1] after:rounded-[20px] after:w-full after:h-[60px] before:absolute before:content-[''] before:-bottom-1 before:left-0  before:-skew-y-6 before:w-full before:h-[60px] before:bg-black  before:-z-[1] before:rounded-[20px];
+    box-shadow: var(--shadow-100);
+  }
+
+  .profile_image {
+    @apply rounded-full object-cover border-[3px] border-black;
+  }
+
+  /* idea details */
+  .divider {
+    @apply border-dotted bg-zinc-400 max-w-4xl my-10 mx-auto;
+  }
+
+  .view_skeleton {
+    @apply bg-zinc-400 h-10 w-24 rounded-lg fixed bottom-3 right-3;
+  }
+
+  /* navbar */
+  .avatar {
+    @apply p-0 focus-visible:ring-0 bg-none rounded-full drop-shadow-md;
+  }
+
+  .dropdown-menu {
+    @apply w-56 border-[5px] border-black bg-white p-5 rounded-2xl;
+  }
+
+  .login {
+    @apply border-[5px] py-4 border-black bg-white text-black relative font-medium hover:shadow-none transition-all duration-500;
+    box-shadow: var(--shadow-100);
+    --font-geist-sans: var(--font-geist-sans);
+  }
+
+  /* searchform */
+  .search-form {
+    @apply max-w-3xl w-full min-h-[80px] bg-white border-[5px] border-black rounded-[80px] text-[24px] text-black mt-8 px-5 flex flex-row items-center gap-5;
+  }
+
+  .search-input {
+    @apply flex-1 font-bold placeholder:font-semibold w-full h-auto outline-none;
+    color: var(--black-100);
+    &::-webkit-input-placeholder {
+      color: var(--black-300);
+      font-weight: 600;
+    }
+    &::-moz-placeholder {
+      color: var(--black-300);
+      font-weight: 600;
+    }
+    &:-ms-input-placeholder {
+      color: var(--black-300);
+      font-weight: 600;
+    }
+    &::-ms-input-placeholder {
+      color: var(--black-300);
+      font-weight: 600;
+    }
+    &::placeholder {
+      color: var(--black-300);
+      font-weight: 600;
+    }
+  }
+
+  .search-btn {
+    @apply size-[50px] rounded-full bg-black flex justify-center items-center;
+  }
+
+  .startup-card {
+  @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] transition-all duration-500 relative;
+  box-shadow: var(--shadow-200);
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+    
+    &:hover::before {
+      opacity: 0.1;
+    }
+    
+    &:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-300);
+    }
+  }
+
+  .startup-card_date {
+    @apply font-medium text-[16px] text-black font-serif;
+    /*background-color: var(--primary);
+    &:hover {
+      background-color: var(--secondary);
+    }*/
+  }
+
+  .startup-card_desc {
+    @apply font-normal text-[16px] line-clamp-2 my-3 break-all;
+    color: var(--text-black-100);
+  }
+
+  .startup-card_img {
+    @apply w-full h-[164px] rounded-[10px] object-cover;
+  }
+
+  .startup-card_btn {
+    @apply rounded-full font-medium font-serif text-[16px] text-white px-5 py-3;
+    background-color: black;
+  }
+
+  .startup-card_skeleton {
+    @apply w-full h-96 rounded-[22px] bg-zinc-400;
+  }
+
+  /* startupform */
+  .startup-form {
+    @apply max-w-2xl mx-auto bg-white my-10 space-y-8 px-6;
+  }
+
+  .startup-form_label {
+    @apply font-bold text-[18px] text-black uppercase;
+  }
+
+  .startup-form_input {
+    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3;
+    &::-webkit-input-placeholder {
+      color: var(--black-300);
+    }
+    &::-moz-placeholder {
+      color: var(--black-300);
+    }
+    &:-ms-input-placeholder {
+      color: var(--black-300);
+    }
+    &::-ms-input-placeholder {
+      color: var(--black-300);
+    }
+    &::placeholder {
+      color: var(--black-300);
+    }
+  }
+
+  .startup-form_textarea {
+    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3;
+    &::-webkit-input-placeholder {
+      color: var(--black-300);
+    }
+    &::-moz-placeholder {
+      color: var(--black-300);
+    }
+    &:-ms-input-placeholder {
+      color: var(--black-300);
+    }
+    &::-ms-input-placeholder {
+      color: var(--black-300);
+    }
+    &::placeholder {
+      color: var(--black-300);
+    }
+  }
+
+  .startup-form_error {
+    @apply text-red-500 mt-2 ml-5;
+  }
+
+  .startup-form_editor {
+    @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold;
+    &::-webkit-input-placeholder {
+      color: var(--black-300);
+    }
+    &::-moz-placeholder {
+      color: var(--black-300);
+    }
+    &:-ms-input-placeholder {
+      color: var(--black-300);
+    }
+    &::-ms-input-placeholder {
+      color: var(--black-300);
+    }
+    &::placeholder {
+      color: var(--black-300);
+    }
+  }
+
+  .startup-form_btn {
+    @apply border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px];
+    background-color: var(--primary);
+  }
+
+  /* view */
+  .view-container {
+    @apply flex justify-end items-center mt-5 fixed bottom-3 right-3;
+    background: red
+  }
+
+  .view-text {
+    @apply font-medium text-[16px] px-4 py-2 rounded-lg capitalize;
+    background-color: var(--primary);
+  }
+
+  .category-tag {
+    @apply font-medium font-serif text-black text-[16px] px-4 py-2 rounded-full;
+    background-color: rgb(228, 215, 219);
+  }
+
+  .pattern {
+    background-image: linear-gradient(
+      to right,
+      transparent 49.5%,
+      rgba(251, 232, 67, 0.2) 49.5%,
+      rgba(251, 232, 67, 0.6) 50.5%,
+      transparent 50.5%
+    );
+    background-size: 5% 100%;
+    background-position: center;
+    background-repeat: repeat-x;
+  }
+
+  .tag-tri {
+    @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
+  }
+
+.w-md-editor-toolbar {
+  padding: 10px;
 }
