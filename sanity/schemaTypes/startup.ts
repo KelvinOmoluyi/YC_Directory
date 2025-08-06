@@ -17,6 +17,10 @@ export const startup = defineType({
             }
         }),
         defineField({
+            name: "description",
+            type: "string"
+        }),
+        defineField({
             name: "author",
             type: "reference",
             to: {type: 'author'}
@@ -28,7 +32,7 @@ export const startup = defineType({
         defineField({
             name: "category",
             type: "string",
-            validation: (Rule) => Rule.min(1).max(20).required().error("Please entera category")
+            validation: (Rule) => Rule.min(1).max(20).required().error("Please enter a category")
         }),
         defineField({
             name: "image",
