@@ -3,5 +3,5 @@ import { author } from './author'
 import { startup } from './startup'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [author, startup],
+  types: [author, startup]
 }

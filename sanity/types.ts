@@ -24,6 +24,7 @@ export type Author = {
   _updatedAt: string;
   _rev: string;
   name?: string;
+  username?: string;
   slug?: Slug;
   image?: {
     _type: 'image';
@@ -45,6 +46,7 @@ export type Startup = {
   _rev: string;
   title?: string;
   slug?: Slug;
+  description?: string;
   author?: {
     _ref: string;
     _type: 'reference';
@@ -52,7 +54,6 @@ export type Startup = {
     [internalGroqTypeReferenceTo]?: 'author';
   };
   views?: number;
-  description?: string;
   category?: string;
   image?: string;
   pitch?: string;

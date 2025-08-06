@@ -1,6 +1,8 @@
-import { client } from "@/sanity/lib/client";
 import Ping from "./Ping";
+import { client } from "@/sanity/lib/client";
 import { STARTUP_VIEWS_QUERY } from "@/sanity/lib/queries";
+
+import ViewsCount from "./ViewsCount";
 
 const View = async ({id}: {id: string}) => {
 
@@ -12,9 +14,7 @@ const View = async ({id}: {id: string}) => {
                 <Ping />
             </div>
 
-            <div className="view-text">
-                <span className="font-black">views: {totalViews}</span>
-            </div>
+            <ViewsCount id={id} totalViews={totalViews} />
         </div>
     );
 }
