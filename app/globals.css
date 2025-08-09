@@ -6,7 +6,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --primary: #ef2968ff;
-  --primary-02: #dfd1d1;
+  --primary-02: #e9e4e4;
   --secondary: #ffee00;
   --font-geist-sans: 'Geist Sans', sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
@@ -537,7 +537,7 @@ body {
   }
 
   .view-text {
-    @apply font-medium text-[16px] px-4 py-2 rounded-lg capitalize;
+    @apply font-medium w-[120px] text-[16px] px-4 py-2 rounded-lg capitalize;
   }
 
   .category-tag {

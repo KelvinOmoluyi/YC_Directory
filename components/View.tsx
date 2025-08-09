@@ -14,7 +14,7 @@ const View = async ({id}: {id: string}) => {
                 <Ping />
             </div>
 
-            <ViewsCount id={id} totalViews={totalViews} />
+            <ViewsCount id={id ?? 0} totalViews={totalViews} />
         </div>
     );
 }

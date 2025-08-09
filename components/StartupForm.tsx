@@ -5,14 +5,11 @@ import MDEditor from "@uiw/react-md-editor";
 import { Send } from "lucide-react";
 import { formSchema } from "@/sanity/lib/validation";
 import { useRouter } from "next/navigation";
-import { auth } from "@/auth";
 import { createPitch } from "@/sanity/lib/actions";
 
 const StartupForm = () => {
     const[errors, setErrors] = useState<Record<string, string>>({});
     const[pitch, setPitch] = useState("");
-
-    const session = auth();
 
     const router = useRouter();
 
@@ -41,7 +38,6 @@ const StartupForm = () => {
             setErrors(fieldErrors);
             return;
             }
-            console.log(formValues);
 
 
             const formInfo = await createPitch(prevState, formData, pitch);

@@ -5,12 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import markdownit from "markdown-it"
 import View from "@/components/View";
+import { auth } from "@/auth";
 
 const md = markdownit();
 
 const Page = async ({ params }: 
   {params: Promise<{id? : string}>}) => {
+
+    const session = await auth();
+    
     const id = (await params).id;
+
     const post = await client.fetch(STARTUP_BY_ID_QUERY, {id});
 
     if (!post) notFound();
