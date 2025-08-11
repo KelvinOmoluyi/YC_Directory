@@ -1,11 +1,19 @@
-import createImageUrlBuilder from '@sanity/image-url'
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from './client';
 
-import { dataset, projectId } from '../env'
+const builder = imageUrlBuilder(client);
 
-// https://www.sanity.io/docs/image-url
-const builder = createImageUrlBuilder({ projectId, dataset })
+export function urlFor(source: any) {
+  // Only try to build if it's a valid Sanity image object
+  if (source?.asset?._ref) {
+    return builder.image(source).url();
+  }
 
-export const urlFor = (source: SanityImageSource) => {
-  return builder.image(source)
+  // If it's already a string (e.g., from GitHub), just return it directly
+  if (typeof source === 'string') {
+    return source;
+  }
+
+  // Fallback placeholder
+  return "https://placehold.co/48x48";
 }

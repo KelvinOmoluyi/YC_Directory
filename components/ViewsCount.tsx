@@ -40,7 +40,7 @@ const ViewsCount = ({ id, totalViews }: { id: string; totalViews: number }) => {
       {isUpdating ? (
         <Skeleton width={"100%"} height={20} />
       ) : (
-        <span className="font-black">views: {totalViews}</span>
+        <span className="font-black">views: {totalViews ?? 1}</span>
       )}
     </div>
   );

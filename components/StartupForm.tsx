@@ -1,15 +1,20 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useState, useEffect } from "react";
 import MDEditor from "@uiw/react-md-editor";
 import { Send } from "lucide-react";
 import { formSchema } from "@/sanity/lib/validation";
 import { useRouter } from "next/navigation";
 import { createPitch } from "@/sanity/lib/actions";
+import { useToast } from "@/hooks/use-toast";
+
+
 
 const StartupForm = () => {
     const[errors, setErrors] = useState<Record<string, string>>({});
     const[pitch, setPitch] = useState("");
+
+    const { toast } = useToast();
 
     const router = useRouter();
 
@@ -44,7 +49,10 @@ const StartupForm = () => {
 
             // fix with real alert
             if (formInfo.status === "SUCCESS") {
-                window.prompt("Startup has succesfully been created")
+            toast({
+                title: "Success",
+                description: "Your startup pitch has been created successfully",
+            });
 
                 router.push(`/startup/${formInfo._id}`)
             }
