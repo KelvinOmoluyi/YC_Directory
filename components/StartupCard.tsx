@@ -3,6 +3,8 @@ import { formatDate } from "../functions";
 import Link from "next/link";
 import Image from "next/image";
 import { Startup, Author } from "@/sanity/types";
+import Skeleton from "react-loading-skeleton";
+import { urlFor } from "@/sanity/lib/image";
 
 export type StartupCardType = Omit<Startup, "author"> & { author?: Author };
 
@@ -35,9 +37,9 @@ const StartupCard = ({post}: {post: StartupCardType}) => {
                 </div>
 
                 <Link href={`/user/${author?._id}/`}>
-                    <Image src="https://placehold.co/48x48"
-                    alt="placeholder" 
-                    width={48} 
+                    <Image src={author?.image ? urlFor(author.image) : "https://placehold.co/48x48"}
+                    alt={author?.name || ""} 
+                    width={48}
                     height={48}
                     className="rounded-full"/>
                 </Link>
@@ -67,5 +69,15 @@ const StartupCard = ({post}: {post: StartupCardType}) => {
         </li>
     );
 }
+
+export const StartupCardSkeleton = () => (
+    <>
+    {[0, 1, 2, 3].map((index: number) => (
+        <li key={index}>
+            <Skeleton className="startup-card_skeleton" />
+        </li>
+    ))}
+    </>
+)
  
 export default StartupCard;
