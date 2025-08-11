@@ -22,8 +22,9 @@ export async function POST(req: Request) {
       .commit();
 
     return NextResponse.json({ success: true, updatedViews: currentViews + 1 });
-  } catch (error: any) {
-    console.error("View increment failed:", error.message || error);
-    return NextResponse.json({ error: error.message || "Unknown error" }, { status: 500 });
+  } catch (error) {
+    const err = error as Error;
+    console.error("View increment failed:", err.message || error);
+    return NextResponse.json({ error: err.message || "Unknown error" }, { status: 500 });
   }
 }
