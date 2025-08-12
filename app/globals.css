@@ -27,21 +27,13 @@
   --shadow-300: 10px 10px 0 #000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ffffff;
-    --white: #ffffff;
-  }
-}
-
 /* ---------- Base ---------- */
 @layer base {
   html, body {
     height: 100%;
   }
   body {
-    background-color: var(--background);
+    background-color: var(--color-background);
     color: var(--foreground);
     font-family: var(--font-geist-sans);
     margin: 0;
