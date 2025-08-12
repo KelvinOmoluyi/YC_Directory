@@ -7,6 +7,7 @@ import markdownit from "markdown-it"
 import View from "@/components/View";
 import { auth } from "@/auth";
 import StartupCard, { StartupCardType } from "@/components/StartupCard";
+import { formatDate } from "@/functions";
 
 const md = markdownit();
 
@@ -24,18 +25,12 @@ const Page = async ({ params }:
 
     if (!post) notFound();
 
-    const formattedDate = post._createdAt.toLocaleString("en-us", {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    })
-
     const parsedContent = md.render(post?.pitch || "")
 
     return (
         <>
             <section className="pink_container !min-h-[230px]">
-                <p className="tag">{formattedDate}</p>
+                <p className="tag">{formatDate(post._createdAt)}</p>
                 <h1 className="heading text-30-extrabold">{post.title}</h1>
                 <p className="sub-heading  !max-w-3xl">
                     {post?.description || "No description available."}
