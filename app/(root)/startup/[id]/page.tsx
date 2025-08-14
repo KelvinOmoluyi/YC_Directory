@@ -8,7 +8,7 @@ import View from "@/components/View";
 import { auth } from "@/auth";
 import StartupCard, { StartupCardType } from "@/components/StartupCard";
 import { formatDate } from "@/functions";
-import fallbackImg from "../../../../public/images/place-holder.png"
+import fallbackImg from "@/public/images/place-holder.png"
 
 const md = markdownit();
 

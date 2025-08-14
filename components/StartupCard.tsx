@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Startup, Author } from "@/sanity/types";
 import Skeleton from "react-loading-skeleton";
 import { urlFor } from "@/sanity/lib/image";
-import fallbackImg from "../public/images/place-holder.png"
+import fallbackImg from "@/public/images/place-holder.png"
 
 export type StartupCardType = Omit<Startup, "author"> & { author?: Author };
 
