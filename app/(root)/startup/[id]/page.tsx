@@ -8,6 +8,7 @@ import View from "@/components/View";
 import { auth } from "@/auth";
 import StartupCard, { StartupCardType } from "@/components/StartupCard";
 import { formatDate } from "@/functions";
+import fallbackImg from "../../../../public/images/place-holder.png"
 
 const md = markdownit();
 
@@ -38,7 +39,7 @@ const Page = async ({ params }:
             </section>
 
             <section className="section_container">
-                <img src={post.image} alt="thumbnail" className="w-full h-auto rounded-xl"/>
+                <Image src={post.image || fallbackImg} alt="thumbnail" className="w-full h-auto rounded-xl"/>
 
                 <div className="space-y-5 mt-10 max-w-4xl mx-auto">
                     <div className="flex-between gap-5">
