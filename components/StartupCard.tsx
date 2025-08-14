@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Startup, Author } from "@/sanity/types";
 import Skeleton from "react-loading-skeleton";
 import { urlFor } from "@/sanity/lib/image";
+import fallbackImg from "../public/images/place-holder.png"
 
 export type StartupCardType = Omit<Startup, "author"> & { author?: Author };
 
@@ -50,7 +51,7 @@ const StartupCard = ({post}: {post: StartupCardType}) => {
                     {description}
                 </p>
 
-                <Image src={image || "/images/place-holder.png"}  alt="Startup image" className="startup-card_img"/>
+                <Image src={image || fallbackImg}  alt="Startup image" className="startup-card_img"/>
                 {/* <img src={}/> */}
             </Link>
 
